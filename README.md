@@ -11,7 +11,7 @@
      <td>Screenshot</td>
   </tr>
   <tr>
-    <td valign="top"><img src="https://user-images.githubusercontent.com/15268903/95552876-50301080-0a2f-11eb-9521-701508454f34.gif" height="800" width="400"></td>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/15268903/95651195-64950b80-0b0a-11eb-96b5-407815f8e54d.gif" height="800" width="400"></td>
   </tr>
  </table>
  <br>
@@ -32,11 +32,7 @@ r0b1-test
                             │   MainActivity.kt
                             │
                             ├───model
-                            │       Audio.kt
-                            │       Chapter.kt
-                            │       Document.kt
-                            │       RowModel.kt
-                            │       Video.kt
+                            │       Item.kt
                             │
                             └───view
                                 │   DocumentActivity.kt
@@ -44,5 +40,6 @@ r0b1-test
                                 │
                                 └───adapter
                                         BaseAdapter.kt
+                                        NestedAdapter.kt
 ```
 

@@ -6,62 +6,45 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shajt3ch.robi.model.*
 import com.shajt3ch.robi.view.adapter.BaseAdapter
+import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
-
-    private lateinit var baseAdapter: BaseAdapter
-    private lateinit var rows: MutableList<RowModel>
-    private lateinit var recyclerView: RecyclerView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        recyclerView = findViewById(R.id.recycler_view)
-        rows = mutableListOf()
-        baseAdapter = BaseAdapter(this, rows)
-        recyclerView.layoutManager = LinearLayoutManager(
-            this,
-            RecyclerView.VERTICAL,
-            false
-        )
-        recyclerView.adapter = baseAdapter
-
         populateData()
     }
 
-
     private fun populateData() {
 
-        val videoList1: MutableList<Video> = mutableListOf()
-        videoList1.add(Video("Video 1_1"))
-        videoList1.add(Video("Video 1_2"))
+        val chapter1 = ArrayList<Item>()
+        chapter1.add(Video(R.drawable.ic_video, "Video 1_1"))
+        chapter1.add(Document(R.drawable.ic_doc, "Document 1_1", "Shakil"))
+        chapter1.add(Video(R.drawable.ic_video, "Video 1_2"))
 
-        val audioList1: MutableList<Audio> = mutableListOf()
-        audioList1.add(Audio("Audio 1_1"))
+        val chapter2 = ArrayList<Item>()
+        chapter2.add(Document(R.drawable.ic_doc, "Document 2_1", "Shaj"))
+        chapter2.add(Video(R.drawable.ic_video, "Video 2_1"))
+        chapter2.add(Video(R.drawable.ic_video, "Video 2_2"))
+        chapter2.add(Audio(R.drawable.ic_audio, "Audio 2_1"))
 
-        val documentList1: MutableList<Document> = mutableListOf()
-        documentList1.add(Document("Document 1_1"))
+        val video3 = Video(R.drawable.ic_video, "Video 3_0")
+        val document4 = Document(R.drawable.ic_doc, "Document 4_0", "Shakil")
 
+        val items = ArrayList<Item>()
+        items.add(Chapter("Chapter 1", false, chapter1))
+        items.add(Chapter("Chapter 2", false, chapter2))
+        items.add(video3)
+        items.add(document4)
 
-        val videoList2: MutableList<Video> = mutableListOf()
-        videoList2.add(Video("Vid 2_1"))
-        videoList2.add(Video("Vid 2_2"))
+        val adapter = BaseAdapter(items)
 
-        val audioList2: MutableList<Audio> = mutableListOf()
-        audioList2.add(Audio("Audio 2_1"))
-
-        val documentList2: MutableList<Document> = mutableListOf()
-        documentList2.add(Document("Document 2_1"))
-
-
-        rows.add(RowModel(RowModel.CHAPTER, Chapter("Chapter 1", videoList1, null, documentList1)))
-        rows.add(RowModel(RowModel.CHAPTER, Chapter("Chapter 2", videoList2, audioList2, documentList2)))
-        rows.add(RowModel(RowModel.VIDEO, Video("Video 3_0")))
-        rows.add(RowModel(RowModel.DOCUMENT, Document("Document 4_0")))
-
-        baseAdapter.notifyDataSetChanged()
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.setHasFixedSize(true)
+        recyclerView.adapter = adapter
     }
 
 

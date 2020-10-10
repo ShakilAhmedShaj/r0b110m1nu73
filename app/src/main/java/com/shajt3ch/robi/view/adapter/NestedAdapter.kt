@@ -5,11 +5,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shajt3ch.robi.R
-import com.shajt3ch.robi.model.*
-import kotlinx.android.synthetic.main.chapter_item_layout.view.*
+import com.shajt3ch.robi.model.Audio
+import com.shajt3ch.robi.model.Document
+import com.shajt3ch.robi.model.Item
+import com.shajt3ch.robi.model.Video
 import kotlinx.android.synthetic.main.document_item_layout.view.*
 import kotlinx.android.synthetic.main.document_item_layout.view.image
 import kotlinx.android.synthetic.main.item_layout.view.*
@@ -19,21 +20,14 @@ import kotlinx.android.synthetic.main.item_layout.view.*
  * shakilahmedshaj@gmail.com
  */
 
-const val CHAPTER_LAYOUT = 1
-const val DOCUMENT_LAYOUT = 2
-const val ITEM_LAYOUT = 3
-
-class BaseAdapter(private val list: List<Item>) : RecyclerView.Adapter<BaseAdapter.ViewHolder>() {
-
+class NestedAdapter(private val list: List<Item>) :
+    RecyclerView.Adapter<NestedAdapter.ViewHolder>() {
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view)
 
     private lateinit var context: Context
 
     override fun getItemViewType(position: Int): Int {
         return when (list[position]) {
-            is Chapter -> {
-                CHAPTER_LAYOUT
-            }
             is Document -> {
                 DOCUMENT_LAYOUT
             }
@@ -46,14 +40,6 @@ class BaseAdapter(private val list: List<Item>) : RecyclerView.Adapter<BaseAdapt
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         context = parent.context
         return when (viewType) {
-            CHAPTER_LAYOUT -> {
-                ViewHolder(
-                    LayoutInflater.from(parent.context).inflate(
-                        R.layout.chapter_item_layout,
-                        parent, false
-                    )
-                )
-            }
             DOCUMENT_LAYOUT -> {
                 ViewHolder(
                     LayoutInflater.from(parent.context).inflate(
@@ -75,26 +61,7 @@ class BaseAdapter(private val list: List<Item>) : RecyclerView.Adapter<BaseAdapt
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         when (list[position]) {
-            is Chapter -> {
-                val item = list[position] as Chapter
 
-                holder.view.itemType.text = item.title
-
-                if (item.isExpanded) {
-                    holder.view.recyclerView.visibility = View.VISIBLE
-                    val nestedAdapter = NestedAdapter(item.items)
-                    holder.view.recyclerView.layoutManager = LinearLayoutManager(context)
-                    holder.view.recyclerView.setHasFixedSize(true)
-                    holder.view.recyclerView.adapter = nestedAdapter
-                } else {
-                    holder.view.recyclerView.visibility = View.GONE
-                }
-
-                holder.view.setOnClickListener {
-                    item.isExpanded = !(list[position] as Chapter).isExpanded
-                    notifyItemChanged(position)
-                }
-            }
             is Document -> {
                 val item = list[position] as Document
 
@@ -118,6 +85,7 @@ class BaseAdapter(private val list: List<Item>) : RecyclerView.Adapter<BaseAdapt
             }
             is Audio -> {
                 val item = list[position] as Audio
+
                 holder.view.image.setImageResource(item.icon)
                 holder.view.title.text = item.title
 
