@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         populateData()
     }
 
@@ -33,12 +32,12 @@ class MainActivity : AppCompatActivity() {
         chapter2.add(Video(R.drawable.ic_video, "Video 2_2"))
         chapter2.add(Audio(R.drawable.ic_audio, "Audio 2_1"))
 
-        val video3 = Video(R.drawable.ic_video, "Audio 01")
-        val document4 = Document(R.drawable.ic_doc, "Document 01", "Shakil")
+        val video3 = Video(R.drawable.ic_video, "Video 3_0")
+        val document4 = Document(R.drawable.ic_doc, "Document 4_0", "Shakil")
 
         val items = ArrayList<Item>()
-        items.add(Chapter(false, chapter1))
-        items.add(Chapter(false, chapter2))
+        items.add(Chapter("Chapter 1", false, chapter1))
+        items.add(Chapter("Chapter 2", false, chapter2))
         items.add(video3)
         items.add(document4)
 

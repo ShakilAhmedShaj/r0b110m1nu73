@@ -78,7 +78,7 @@ class BaseAdapter(private val list: List<Item>) : RecyclerView.Adapter<BaseAdapt
             is Chapter -> {
                 val item = list[position] as Chapter
 
-                holder.view.itemType.text = "Chapter"
+                holder.view.itemType.text = item.title
 
                 if (item.isExpanded) {
                     holder.view.recyclerView.visibility = View.VISIBLE

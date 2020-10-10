@@ -7,6 +7,7 @@ package com.shajt3ch.robi.model
 
 abstract class Item
 data class Chapter(
+    val title: String,
     var isExpanded: Boolean,
     val items: List<Item>
 ) : Item()
