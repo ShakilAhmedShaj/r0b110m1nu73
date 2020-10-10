@@ -83,12 +83,16 @@ class BaseAdapter(private val list: List<Item>) : RecyclerView.Adapter<BaseAdapt
                 holder.view.itemType.text = item.title
 
                 if (item.isExpanded) {
+
+                    holder.view.btn_toggle.setImageResource(R.drawable.ic_minus)
+
                     holder.view.recyclerView.visibility = View.VISIBLE
                     val nestedAdapter = NestedAdapter(item.items)
                     holder.view.recyclerView.layoutManager = LinearLayoutManager(context)
                     holder.view.recyclerView.setHasFixedSize(true)
                     holder.view.recyclerView.adapter = nestedAdapter
                 } else {
+                    holder.view.btn_toggle.setImageResource(R.drawable.ic_plus)
                     holder.view.recyclerView.visibility = View.GONE
                 }
 
