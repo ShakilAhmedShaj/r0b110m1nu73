@@ -21,18 +21,18 @@ class MainActivity : AppCompatActivity() {
     private fun populateData() {
 
         val chapter1 = ArrayList<Item>()
-        chapter1.add(Video(R.drawable.ic_video, "Video 1_1"))
-        chapter1.add(Document(R.drawable.ic_doc, "Document 1_1", "Shakil"))
-        chapter1.add(Video(R.drawable.ic_video, "Video 1_2"))
+        chapter1.add(Video("Video 1_1"))
+        chapter1.add(Document("Document 1_1", "Shakil"))
+        chapter1.add(Video("Video 1_2"))
 
         val chapter2 = ArrayList<Item>()
-        chapter2.add(Document(R.drawable.ic_doc, "Document 2_1", "Shaj"))
-        chapter2.add(Video(R.drawable.ic_video, "Video 2_1"))
-        chapter2.add(Video(R.drawable.ic_video, "Video 2_2"))
-        chapter2.add(Audio(R.drawable.ic_audio, "Audio 2_1"))
+        chapter2.add(Document("Document 2_1", "Shaj"))
+        chapter2.add(Video("Video 2_1"))
+        chapter2.add(Video("Video 2_2"))
+        chapter2.add(Audio("Audio 2_1"))
 
-        val video3 = Video(R.drawable.ic_video, "Video 3_0")
-        val document4 = Document(R.drawable.ic_doc, "Document 4_0", "Shakil")
+        val video3 = Video("Video 3_0")
+        val document4 = Document("Document 4_0", "Shakil")
 
         val items = ArrayList<Item>()
         items.add(Chapter("Chapter 1", false, chapter1))

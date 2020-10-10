@@ -67,7 +67,7 @@ class NestedAdapter(private val list: List<Item>) :
             is Document -> {
                 val item = list[position] as Document
 
-                holder.view.iv_doc_image.setImageResource(item.icon)
+                holder.view.iv_doc_image.setImageResource(R.drawable.ic_doc)
                 holder.view.tv_doc_title.text = item.title
                 holder.view.tv_doc_author.text = item.authorName
 
@@ -85,7 +85,7 @@ class NestedAdapter(private val list: List<Item>) :
             is Video -> {
                 val item = list[position] as Video
 
-                holder.view.iv_item_image.setImageResource(item.icon)
+                holder.view.iv_item_image.setImageResource(R.drawable.ic_video)
                 holder.view.tv_item_title.text = item.title
 
                 val intent = Intent(context, VideoActivity::class.java)
@@ -101,7 +101,7 @@ class NestedAdapter(private val list: List<Item>) :
             is Audio -> {
                 val item = list[position] as Audio
 
-                holder.view.iv_item_image.setImageResource(item.icon)
+                holder.view.iv_item_image.setImageResource(R.drawable.ic_audio)
                 holder.view.tv_item_title.text = item.title
 
                 holder.view.setOnClickListener {

@@ -13,17 +13,14 @@ data class Chapter(
 ) : Item()
 
 data class Video(
-    val icon: Int,
     val title: String
 ) : Item()
 
 data class Document(
-    val icon: Int,
     val title: String,
     val authorName: String
 ) : Item()
 
 data class Audio(
-    val icon: Int,
     val title: String
 ) : Item()
