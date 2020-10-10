@@ -1,6 +1,7 @@
 package com.shajt3ch.robi.view
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.MediaController
 import androidx.appcompat.app.AppCompatActivity
 import com.shajt3ch.robi.R
@@ -10,6 +11,13 @@ class VideoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video)
+
+        if (supportActionBar != null) {
+
+            supportActionBar!!.setDisplayHomeAsUpEnabled(true);
+            supportActionBar!!.setDisplayShowHomeEnabled(true);
+        }
+
         this.title = "Video"
 
         val bundle: Bundle? = intent.extras
@@ -26,5 +34,12 @@ class VideoActivity : AppCompatActivity() {
         controller.setAnchorView(vv_video)
         vv_video.setMediaController(controller)
         vv_video.start()
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == android.R.id.home) {
+            finish()
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
