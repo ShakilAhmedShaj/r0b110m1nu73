@@ -11,7 +11,7 @@
      <td>Screen Video</td>
   </tr>
   <tr>
-    <td valign="top"><img src="https://user-images.githubusercontent.com/15268903/95653279-5ac6d480-0b19-11eb-87bd-d2ea4c1d2a4a.gif" height="800" width="400"></td>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/15268903/95653543-4be12180-0b1b-11eb-8636-7abb5f213b42.gif" height="800" width="400"></td>
   </tr>
  </table>
  <br>
