@@ -5,13 +5,13 @@
 <h3 style="margin-top: 0;" align="center">Test App</h3>
 </p>
 	
-## App Screenshots
+## App Screens
 <table>
   <tr>
-     <td>Screenshot</td>
+     <td>Screen Video</td>
   </tr>
   <tr>
-    <td valign="top"><img src="https://user-images.githubusercontent.com/15268903/95651195-64950b80-0b0a-11eb-96b5-407815f8e54d.gif" height="800" width="400"></td>
+    <td valign="top"><img src="https://user-images.githubusercontent.com/15268903/95652302-e2104a00-0b11-11eb-8348-2e5b545075d7.gif" height="800" width="400"></td>
   </tr>
  </table>
  <br>

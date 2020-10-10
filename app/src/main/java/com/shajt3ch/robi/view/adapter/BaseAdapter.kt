@@ -1,6 +1,7 @@
 package com.shajt3ch.robi.view.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,9 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.shajt3ch.robi.R
 import com.shajt3ch.robi.model.*
+import com.shajt3ch.robi.view.DocumentActivity
+import com.shajt3ch.robi.view.VideoActivity
 import kotlinx.android.synthetic.main.chapter_item_layout.view.*
 import kotlinx.android.synthetic.main.document_item_layout.view.*
-import kotlinx.android.synthetic.main.document_item_layout.view.image
 import kotlinx.android.synthetic.main.item_layout.view.*
 
 /**
@@ -98,31 +100,42 @@ class BaseAdapter(private val list: List<Item>) : RecyclerView.Adapter<BaseAdapt
             is Document -> {
                 val item = list[position] as Document
 
-                holder.view.image.setImageResource(item.icon)
-                holder.view.titleTV.text = item.title
-                holder.view.authorTV.text = item.authorName
+                holder.view.iv_doc_image.setImageResource(item.icon)
+                holder.view.tv_doc_title.text = item.title
+                holder.view.tv_doc_author.text = item.authorName
+
+                val intent = Intent(context, DocumentActivity::class.java)
+                intent.putExtra("documentTitle", item.title)
+                intent.putExtra("authorName", item.authorName)
 
                 holder.view.setOnClickListener {
-                    Toast.makeText(context, "document clicked", Toast.LENGTH_SHORT).show()
+                    context.startActivity(intent)
+                    Toast.makeText(context, item.title + " clicked", Toast.LENGTH_SHORT).show()
                 }
             }
             is Video -> {
                 val item = list[position] as Video
 
-                holder.view.image.setImageResource(item.icon)
-                holder.view.title.text = item.title
+                holder.view.iv_item_image.setImageResource(item.icon)
+                holder.view.tv_item_title.text = item.title
+
+                val intent = Intent(context, VideoActivity::class.java)
+                intent.putExtra("videoTitle", item.title)
 
                 holder.view.setOnClickListener {
-                    Toast.makeText(context, "video clicked", Toast.LENGTH_SHORT).show()
+
+                    context.startActivity(intent)
+
+                    Toast.makeText(context, item.title + " clicked", Toast.LENGTH_SHORT).show()
                 }
             }
             is Audio -> {
                 val item = list[position] as Audio
-                holder.view.image.setImageResource(item.icon)
-                holder.view.title.text = item.title
+                holder.view.iv_item_image.setImageResource(item.icon)
+                holder.view.tv_item_title.text = item.title
 
                 holder.view.setOnClickListener {
-                    Toast.makeText(context, "audio clicked", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, item.title + " clicked", Toast.LENGTH_SHORT).show()
                 }
             }
         }

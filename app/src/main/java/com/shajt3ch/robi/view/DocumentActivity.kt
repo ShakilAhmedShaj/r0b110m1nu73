@@ -14,7 +14,9 @@ class DocumentActivity : AppCompatActivity() {
         val bundle: Bundle? = intent.extras
 
         val documentTitle = bundle?.getString("documentTitle")
+        val authorName = bundle?.getString("authorName")
 
         tv_document.text = documentTitle
+        tv_author.text = authorName
     }
 }
