@@ -98,8 +98,6 @@ class BaseAdapter(private val list: List<Item>) : RecyclerView.Adapter<BaseAdapt
             is Document -> {
                 val item = list[position] as Document
 
-                holder.view.itemType2.text = "Document"
-
                 holder.view.image.setImageResource(item.icon)
                 holder.view.titleTV.text = item.title
                 holder.view.authorTV.text = item.authorName
@@ -111,8 +109,6 @@ class BaseAdapter(private val list: List<Item>) : RecyclerView.Adapter<BaseAdapt
             is Video -> {
                 val item = list[position] as Video
 
-                holder.view.itemType1.text = "Video"
-
                 holder.view.image.setImageResource(item.icon)
                 holder.view.title.text = item.title
 
@@ -122,9 +118,6 @@ class BaseAdapter(private val list: List<Item>) : RecyclerView.Adapter<BaseAdapt
             }
             is Audio -> {
                 val item = list[position] as Audio
-
-                holder.view.itemType1.text = "Audio"
-
                 holder.view.image.setImageResource(item.icon)
                 holder.view.title.text = item.title
 
