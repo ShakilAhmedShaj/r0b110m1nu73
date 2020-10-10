@@ -23,18 +23,18 @@ class MainActivity : AppCompatActivity() {
     private fun populateData() {
 
         val chapter1 = ArrayList<Item>()
-        chapter1.add(Video(R.mipmap.ic_launcher_round, "one"))
-        chapter1.add(Document(R.mipmap.ic_launcher_round, "one", "Author"))
-        chapter1.add(Video(R.mipmap.ic_launcher_round, "two"))
+        chapter1.add(Video(R.drawable.ic_video, "Video 1_1"))
+        chapter1.add(Document(R.drawable.ic_doc, "Document 1_1", "Shakil"))
+        chapter1.add(Video(R.drawable.ic_video, "Video 1_2"))
 
         val chapter2 = ArrayList<Item>()
-        chapter2.add(Document(R.mipmap.ic_launcher_round, "one", "Author"))
-        chapter2.add(Video(R.mipmap.ic_launcher_round, "one"))
-        chapter2.add(Video(R.mipmap.ic_launcher_round, "two"))
-        chapter2.add(Audio(R.mipmap.ic_launcher_round, "one"))
+        chapter2.add(Document(R.drawable.ic_doc, "Document 2_1", "Shaj"))
+        chapter2.add(Video(R.drawable.ic_video, "Video 2_1"))
+        chapter2.add(Video(R.drawable.ic_video, "Video 2_2"))
+        chapter2.add(Audio(R.drawable.ic_audio, "Audio 2_1"))
 
-        val video3 = Video(R.mipmap.ic_launcher_round, "zero")
-        val document4 = Document(R.mipmap.ic_launcher_round, "zero", "author")
+        val video3 = Video(R.drawable.ic_video, "Audio 01")
+        val document4 = Document(R.drawable.ic_doc, "Document 01", "Shakil")
 
         val items = ArrayList<Item>()
         items.add(Chapter(false, chapter1))
