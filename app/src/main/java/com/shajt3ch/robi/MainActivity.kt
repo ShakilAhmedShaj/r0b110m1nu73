@@ -18,7 +18,6 @@ class MainActivity : AppCompatActivity() {
         populateData()
     }
 
-
     private fun populateData() {
 
         val chapter1 = ArrayList<Item>()
@@ -46,8 +45,6 @@ class MainActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = adapter
-
-
     }
 
 

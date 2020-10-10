@@ -15,7 +15,6 @@ import kotlinx.android.synthetic.main.document_item_layout.view.*
 import kotlinx.android.synthetic.main.document_item_layout.view.image
 import kotlinx.android.synthetic.main.item_layout.view.*
 
-
 /**
  * Created by Shakil Ahmed Shaj on 10,October,2020.
  * shakilahmedshaj@gmail.com
@@ -86,7 +85,7 @@ class NestedAdapter(private val list: List<Item>) :
             }
             is Audio -> {
                 val item = list[position] as Audio
-                
+
                 holder.view.image.setImageResource(item.icon)
                 holder.view.title.text = item.title
 
