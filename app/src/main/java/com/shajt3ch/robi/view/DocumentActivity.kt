@@ -11,12 +11,11 @@ class DocumentActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_document)
         if (supportActionBar != null) {
-
             supportActionBar!!.setDisplayHomeAsUpEnabled(true);
             supportActionBar!!.setDisplayShowHomeEnabled(true);
         }
 
-        this.title = "Document"
+        this.title = getString(R.string.activity_title_document)
 
         val bundle: Bundle? = intent.extras
 

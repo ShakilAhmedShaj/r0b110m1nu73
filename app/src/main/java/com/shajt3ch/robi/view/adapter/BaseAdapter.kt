@@ -31,6 +31,7 @@ class BaseAdapter(private val list: List<Item>) : RecyclerView.Adapter<BaseAdapt
 
     private lateinit var context: Context
 
+    //setting view types to the list items
     override fun getItemViewType(position: Int): Int {
         return when (list[position]) {
             is Chapter -> {
@@ -86,6 +87,7 @@ class BaseAdapter(private val list: List<Item>) : RecyclerView.Adapter<BaseAdapt
 
                     holder.view.btn_toggle.setImageResource(R.drawable.ic_minus)
 
+                    //setting chapter sub item view & passing item list data
                     holder.view.recyclerView.visibility = View.VISIBLE
                     val nestedAdapter = NestedAdapter(item.items)
                     holder.view.recyclerView.layoutManager = LinearLayoutManager(context)
@@ -96,6 +98,7 @@ class BaseAdapter(private val list: List<Item>) : RecyclerView.Adapter<BaseAdapt
                     holder.view.recyclerView.visibility = View.GONE
                 }
 
+                //saving expand states to the list items
                 holder.view.setOnClickListener {
                     item.isExpanded = !(list[position] as Chapter).isExpanded
                     notifyItemChanged(position)

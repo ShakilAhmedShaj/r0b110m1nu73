@@ -13,12 +13,11 @@ class VideoActivity : AppCompatActivity() {
         setContentView(R.layout.activity_video)
 
         if (supportActionBar != null) {
-
             supportActionBar!!.setDisplayHomeAsUpEnabled(true);
             supportActionBar!!.setDisplayShowHomeEnabled(true);
         }
 
-        this.title = "Video"
+        this.title = getString(R.string.activity_title_video)
 
         val bundle: Bundle? = intent.extras
         val videoTitle = bundle?.getString("videoTitle")
@@ -29,7 +28,7 @@ class VideoActivity : AppCompatActivity() {
     }
 
     private fun loadVideo() {
-        vv_video.setVideoPath("android.resource://" + packageName + "/" + R.raw.robi_app_promo)
+        vv_video.run { vv_video.setVideoPath("""android.resource://$packageName/${R.raw.robi_app_promo}""") }
         val controller = MediaController(this)
         controller.setAnchorView(vv_video)
         vv_video.setMediaController(controller)
