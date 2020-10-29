@@ -16,6 +16,13 @@
  </table>
  <br>
 
+## Task
+<table>
+   <tr>
+     <td valign="top"><img src="https://user-images.githubusercontent.com/15268903/97589430-adfcba80-1a27-11eb-9766-2628110ed884.jpg"></td>
+   </tr>
+</table>
+
 ### Directory Structure
 
 The following is a high level overview of relevant files and folders.
